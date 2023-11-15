@@ -1,0 +1,82 @@
+GET http://127.0.0.1:8000/api/read/
+Content-Type: application/json
+
+{}
+
+###
+POST http://127.0.0.1:8000/auth/signup/
+Content-Type: application/json
+
+{ "username": "adam", "password": "Pass1234!", "email": "adam@mail.com" }
+
+###
+
+POST http://127.0.0.1:8000/auth/login/
+Content-Type: application/json
+
+{ "username": "adam", "password": "Pass1234!" }
+
+###
+
+GET http://127.0.0.1:8000/auth/test_token/
+Content-Type: application/json
+Authorization: Token 53cd4e43f3e9cc0e179989540c7e73966df90c92
+
+###
+
+POST http://127.0.0.1:8000/auth/logout/
+Content-Type: application/json
+Authorization: Token 53cd4e43f3e9cc0e179989540c7e73966df90c92
+
+
+### this is Crud testing ----------------------------------------------------------
+
+GET http://127.0.0.1:8000/api/read/
+Content-Type: application/json
+
+{}
+###
+GET http://127.0.0.1:8000/api/read/12/
+Content-Type: application/json
+
+{}
+###
+
+
+POST http://127.0.0.1:8000/api/create/
+Content-Type: application/json
+
+{
+    "value": "Hallelujah"
+}
+###
+
+PUT http://127.0.0.1:8000/api/update/9/
+Content-Type: application/json
+
+{
+    "value": "asdsadsad"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/delete/13/
+Content-Type: application/json
+
+{}
+
+###
+# POST http://127.0.0.1:8000/api/create/
+# Content-Type: multipart/form-data; boundary=boundary_string
+
+# --boundary_string
+# Content-Disposition: form-data; name="value"
+
+# asdqweqwe
+# --boundary_string
+# Content-Disposition: form-data; name="file"; filename="example.txt"
+# Content-Type: text/plain
+
+# [Contents of the file]
+
+# --boundary_string--
